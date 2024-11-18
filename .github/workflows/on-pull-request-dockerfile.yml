@@ -22,7 +22,7 @@
 
   permissions: read-all
 
-    jobs:
+  jobs:
     docker-analysis:
       runs-on: ubuntu-latest
       permissions:
