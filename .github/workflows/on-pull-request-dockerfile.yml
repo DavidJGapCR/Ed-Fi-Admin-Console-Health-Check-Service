@@ -39,6 +39,13 @@
         - name: Checkout code
           uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
+        - name: Copy application folder to docker context
+          if: ${{ matrix.dockerfile.type == 'local' }}
+          run: |
+            mkdir Docker/Application
+            cp -r ./Application/EdFi.AdminConsole.HealthCheckService ./Docker/Application
+            cp ./Application/NuGet.Config ./Docker/Application
+
         - name: Log in to Docker Hub
           uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
           with:
