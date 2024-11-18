@@ -7,8 +7,10 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /source
 
+RUN pwd
+
 # Copy source code and compile the application
-COPY ../Application/EdFi.AdminConsole.HealthCheckService/. ./EdFi.AdminConsole.HealthCheckService/
+COPY Application/EdFi.AdminConsole.HealthCheckService/. ./EdFi.AdminConsole.HealthCheckService/
 WORKDIR /source/EdFi.AdminConsole.HealthCheckService
 
 # Restore dependencies
